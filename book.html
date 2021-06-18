@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>娱乐界面</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: #f1f1f1;
+}
+ 
+/* 头部标题 */
+.header {
+  padding: 5px;
+  text-align: center;
+  background: white;
+}
+ 
+.header h1 {
+  font-size: 50px;
+}
+ 
+/* 导航条 */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+ 
+/* 导航条链接 */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+ 
+/* 链接颜色修改 */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+ 
+
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+ 
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #a2d3e2;
+  padding-left: 20px;
+}
+ 
+/* 图像部分 */
+.fakeimg {
+  background-color: rgb(236, 222, 222);
+    padding:5px;
+  width: 100%;
+ height: 250px;
+}
+    .fakeimg1 {
+  background-color: #aaa;
+    padding:5px;
+  width: 100%;
+ height: auto;
+}
+ 
+/* 文章卡片效果 */
+.card {
+  background-color: rgb(233, 173, 173);
+  padding: 20px;
+  margin-top: 20px;
+}
+ 
+/* 列后面清除浮动 */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ 
+/* 底部 */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+ 
+/* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+ 
+/* 响应式布局 -屏幕尺寸小于 400px 时，导航等布局改为上下布局 */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+    .bookborder{
+        border:2px auto;
+    }
+</style>
+</head>
+<body>
+    <script type="text/javascript" src="me.js" ></script>
+<div class="header">
+  <h1>~劳逸结合不过分~</h1>
+
+</div>
+
+
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>老二刺猿看个动漫不过分</h2>
+     
+      <div class="fakeimg" style="text-align: center"><img src="photo/121.jpg" height="65%">
+          <img src="photo/122.jpg" height="92%">
+        <img src="photo/124.jpg" height="80%">
+        <img src="photo/125.jpg"  height="80%">
+      
+        </div>
+     
+    
+    </div>
+    <div class="card">
+      <h2>看个正经片应该也不过分</h2>
+    
+      <div class="fakeimg" style="height:400px;text-align: center">
+            <img src="photo/221.jpg" height="80%">
+            <img src="photo/222.jpg" height="80%">
+          <img src="photo/223.jpg"height="80%">
+          <img src="photo/224.jpg" height="80%">
+      </div>
+      
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>再玩个游戏不过分吧</h2>
+
+        <div class="fakeimg1"><img src="photo/555.jpg" width="100%"height="100%"></div>
+
+    </div>
+    <div class="card">
+      <h3>抽空喝杯奶茶不过分吧</h3>
+       
+      <div class="fakeimg1"><img src="photo/333.jpg"width="100%"></div>
+      
+    </div>
+  
+  </div>
+</>
+
+
+</body>
+</html>

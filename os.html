@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>&nbsp;&nbsp;数据库笔记</title>
+     <style type = "text/css"> @import "dock.css"</style>
+     <style>
+  .body{
+      
+             background-color: black;
+            background-image:url("photo/1234.jpg");
+         }
+   .self{
+         height:2000px;
+         position: absolute;
+         margin: auto;
+         left: 0;
+         right: 0;
+         background-color:white;
+           
+             filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
+         width: 1400px;
+             border-radius: 2%;
+
+     }
+    .eaasy{
+        width: 1100px;
+        height: 200px;
+        position: absolute;
+         margin: auto;
+         left: 0;
+         right: 0;
+       
+         border-radius: 3%;
+         }
+         .clear{
+             clear:both;
+         }
+    </style>
+</head>
+
+<body  class="body">
+    <div class="self"><h2 style="text-align: center">数据库笔记</h2>
+   
+</p></div><br><br><br><br><br><br>
+     <div class="eaasy"  style="text-align: center"><h2>函数</h2><p style="text-align: left;font-family: 楷体"> 
+        大小写转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        SELECT ename, LOWER(ename) FROM emp;
+        SELECT ename, UPPER(ename) FROM emp;
+
+        截取&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        SELECT ename, SUBSTR(ename,1,2) FROM emp;
+
+        四舍五入&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        SELECT ROUND(3.54159) FROM dual;
+        SELECT ROUND(3.14159,3) FROM dual;
+
+        日期转字符&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        SELECT TO_CHAR(SYSDATE, 'yyyy-MM-dd HH:mi:ss') FROM dual;
+        SELECT TO_CHAR(SYSDATE, 'yyyy-MM-dd HH24:mi:ss') FROM dual;
+
+        字符格式转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        SELECT TO_CHAR(sal, '99,999.9999') FROM emp;
+
+        字符转日期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        SELECT TO_DATE('2019-06-11 15:08:00','yyyy-MM-dd HH24:mi:ss') FROM dual;
+        
+        解决NULL空值问题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        SELECT ename, NVL(comm,0) FROM emp;</p></div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <div class="eaasy"  style="text-align: center"><h2>表连接</h2><p style="text-align: left;font-family: 楷体">左连接:left   join,返回左表中所有的数据和右表中满足条件的数据
+        右连接:right  join,返回右表中所有的数据和左表中满足条件的数据
+        内连接:inner  join,返回左表和右表同时满足条件的数据
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <div class="eaasy"  style="text-align: center"><h2>分页</h2><p style="text-align: left;font-family: 楷体">在MySQL分页LIMIT，在ORACLE不支持LIMIT，引入ROWNUM伪列 如：查询某表前5条数据
+
+        SELECT * FROM 表名 WHERE ROWNUM <=5;
+        但是ROWNUM不支持> >= =，故需要使用子查询实现查询。 如：
+        
+        SELECT ename, deptno
+        FROM (SELECT ename, deptno, rownum AS rn FROM emp) t 
+        WHERE t.rn > 10
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="eaasy" style="text-align: center"><h2>视图</h2><p style="text-align: left;font-family: 楷体">视图就当做一张虚标，数据来源于真实的表。
+
+        创建视图语法：
+        
+        CREATE VIEW  视图名
+        AS  SQL语句;
+        视图需要创建视图权限，登陆管理员账号执行授权命令
+        
+        GRANT CREATE TABLE, CREATE VIEW TO scott;
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="eaasy"  style="text-align: center"><h2>数据字典</h2><p style="text-align: left;font-family: 楷体">表、索引、视图等信息储存在ORACLE数据库的表中，这些表称为数据字典。
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="eaasy"  style="text-align: center"><h2>序列</h2><p style="text-align: left;font-family: 楷体">自增长
+        MySQL：auto_increment
+        ORACLE:不支持auto_increment
+        实现自增长原理
+        
+        获取当前的id，自增1 id++，作为下一条数据的id插入。 id为主键，id实现自增长。
+        
+        创建序列语法：
+        
+        CREATE SEQUENCE 序列名;
+        序列本身是一个对象，有两个属性。每次调用nextval，会自增长1个
+        
+        例子： 建表
+        
+        CREATE TABLE weibo(
+            id NUMBER PRIMARY KEY,
+            user_id VARCHAR2(20),
+            content VARCHAR2(1024),
+            count NUMBER
+        );
+        建序列
+        
+        CREATE SEQUENCE seq_weibo;
+        怼数据
+        
+        INSERT INTO weibo(id, user_id, content, count)
+        VALUES (seq_weibo.nextval, 'admin', '21213131ea', 1);
+        INSERT INTO weibo(id, user_id, content, count)
+        VALUES (seq_weibo.nextval, 'admin', '21213131ea', 1);
+        观察id，每次调用nextval会自增长1个。
+        
+        SELECT * FROM weibo;
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="eaasy"  style="text-align: center"><h2>索引</h2><p style="text-align: left;font-family: 楷体">目的：为了加快查询效率
+
+        创建主键时，会默认创建一个主键的索引。查询索引字段效率高，非索引字段默认全表扫描。
+        
+        单字段创建索引
+        CREATE INDEX 索引名
+        ON 表名(字段名)
+        例：
+        
+        CREATE INDEX index_user_gameid
+        ON t_user_fee(gameid);
+        多字段创建索引
+        CREATE INDEX 索引名
+        ON 表名(字段1, 字段2, ...)
+        例:
+        
+        CREATE INDEX index_user_gameid_msisdn
+        ON t_user_fee(msisdn, gameid);
+        注意： 一旦给索引的字段添加了函数，则该索引失效。
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+</body>
+</html>

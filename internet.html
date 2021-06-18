@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>&nbsp;&nbsp;概率论笔记</title>
+     <style type = "text/css"> @import "dock.css"</style>
+     <style>
+  .body{
+      
+             background-color: black;
+            background-image:url("photo/12345.jpg");
+         }
+   .self{
+         height:1500px;
+         position: absolute;
+         margin: auto;
+         left: 0;
+         right: 0;
+         background-color:white;
+    
+             filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
+         width: 1400px;
+             border-radius: 2%;
+
+     }
+    .eaasy{
+        width: 1200px;
+        height: 200px;
+        position: absolute;
+         margin: auto;
+         left: 0;
+         right: 0;
+     
+         border-radius: 3%;
+         }
+         .clear{
+             clear:both;
+         }
+    </style>
+</head>
+
+<body  class="body">
+    <div class="self"><h2 style="text-align: center">概率论笔记</h2>
+   
+     <div class="eaasy" style="text-align: center"><h2>事件的概率</h2><p style="text-align: left;font-family: 楷体"> 样本空间(Sample space) Ω:一个试验所有的结果组成的集合, 比如试验为 掷骰子1次,得到的点数, 那么样本空间就为{1, 2, 3, 4, 5, 6}
+        事件: 从集合的角度每个事件都是 Ω 的子集.
+        基本事件: 如果只包含结果集中的一种结果的话,那么这个事件可以称为基本事件, 比如掷骰子1次得到2点就是一个基本事件
+        复合事件: 包含多个结果, 比如掷一次骰子,得到偶数点就是一个复合事件,因为表 现在集合上它包含了多个结果集中的元素{2, 4, 6}.
+        互斥事件: 如果两个事件不可能同时发生，那么他们就是互斥事件，表现在集合上 就是两个集合无交集互斥事件有一个发生的概率：P(A+B) = P(A) + P(B) (用集合 很好理解)
+        对立事件: 是互斥事件的特例，表现在集合上两个集合互为补集、
+        事件的和(并集): 若有两个事件A与B C = {A, B至少有一个发生},那么C就是A, B的 和,记作: C = A+B
+        事件的积(交集): 若有两个事件A与B C = {A, B都发生},那么C就是A, B的积,记作: C = AB
+        事件的差(差集):若有两个事件A与B C = {A发生但是B不发生},那么C就是A与B的差, 记作: C = A-B
+</p></div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <div class="eaasy"  style="text-align: center"><h2>概率的公理化定义</h2><p style="text-align: left;font-family: 楷体">所有的试验结果定义一个全集 Ω, 所有的事件组成一个集合 F, 任何定义于该集合上的事件都是它的子集
+
+        P(A)≥0 for all A∈F
+        P(Ω)=1,P(∅)=0
+        A1, A2,…, An 是互斥事件
+        
+        P(∪iAi)=∑iP(Ai)
+
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <div class="eaasy" style="text-align: center"><h2>事件</h2><p style="text-align: left;font-family: 楷体">一个事件可以看作是实验或者观察的一个结果：
+
+        必须建立在一个明确的试验的基础上
+        这个试验的所有可能的结果已知(每一个可能的结果叫一个基本事件或简单事件)
+        事件明确的界定这些结果中的一部分。
+        如果规定事件E 为掷骰子掷出偶数点,那么它就符合上面的三点要求
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="eaasy"  style="text-align: center"><h2>独立事件与乘法定律</h2><p style="text-align: left;font-family: 楷体">如果事件B发生对事件A发生的概率无影响，那么A,B就是独立事件。。 P(A|B) = P(AB) / P(B) ==>这个是条件概率的定义 P(AB) = P(A) P(B) ==>乘法定律,独立事件积的概率等于各独立事件概率的积 乘法定律的推论：P(A B负) / P(B负) = P(A)如果A，B是独立事件，那么P(A|B)=P(AB)/P(B)=P(A),也就是P(AB)=P(A)P(B) 特别注意独立事件表现在集合上，两个集合是有交集的，独立事件的本质是：A在B发生的前提下的条件概率等于A的本来概率， 也就是B的发生对A的发生概率没有影响。在实际应用中并不经常使用 P(AB) = P(A) P(B)来验证是否是独立事件,而是根 据常识来进行判断两个事件是否有关联
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="eaasy" style="text-align: center"><h2>全概率公式与贝叶斯公式</h2><p style="text-align: left;font-family: 楷体">B1, B2,…Bn是一个完备事件群,也就是说它们的和事件是必然事件且两两互斥,也就是和事件的概率为1. 已知 B1 + B2 + … + Bn = Ω (样本空间) 那么 A = A(B1 + B2 + … + Bn) P(A)=P(AB1)+P(AB2)+…+P(ABn) P(A) = P(B1)P(A|B1) + P(B2)P(A|B2) + … +P(Bn)P(A|Bn) ==> 全概率公式全概率公式可以这样B1, B2, … Bn都是导致A发生的途径, 先计算A在以上各途径发生的条件概率,然后在加权平均(也就 是乘以Bn的概率)
+</p></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="eaasy"  style="text-align: center"><h2>随机变量的概率</h2><p style="text-align: left;font-family: 楷体">随机变量
+        随机变量是一个映射(函数)：
+        
+        X:Ω→R
+        也就是说每一个基本事件都会映射为一个实数。这样每一个实数相应的也会有一个概率。因 为有些实数有多个基本事件映射到，而有些根本没有基本事件映射到，这样实数之间的概率 就是不同的。
+        
+        随机变量分为离散性随机变量和连续性随机变量
+
+
+    </div>
+    
+</body>
+</html>
